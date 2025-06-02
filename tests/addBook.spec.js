@@ -28,12 +28,8 @@ test.describe('Läslistan app', () => {
 		await expect(page.getByText(title)).toBeVisible({timeout: 500})
 		await expect(page.getByText(author)).toBeVisible({timeout: 500})
 
-})
+	})
 
 
 
 })
-
-//Som en användare , vill jag kunna skriva in en titel på en bok, så att jag kan lägga till den i katalogen.
-
-//Som en användare , vill jag kunna skriva in en författare till en bok, så att jag kan lägga till den i katalogen.

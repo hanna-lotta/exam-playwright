@@ -14,13 +14,16 @@ test.describe('Läslistan app', () => {
 //NAVIGERING: 
 test ('Bekräfta att förstasidan är katalogen och att rubriken "Välkommen" visas. Gå vidare till "Lägg till bok" och bekräfta att rubriken "Välkommen" visas. Gå vidare till "Mina böcker" och bekräfta att rubriken "Välkommen" visas. Gå tillbaka till katalogen och bekräfta att rubriken "Välkommen" visas igen', async ({ page }) => {
 	// Första sidan är katalogen
-	await expect(page.getByRole('heading', { name: 'Välkommen' })).toBeVisible({ timeout: 200 });
+	//await expect(page.getByRole('heading', { name: 'Välkommen' })).toBeVisible({ timeout: 200 });
+	await expect(page.getByText('Hur man tappar bort')).toBeVisible({ timeout: 200 });
 	// Gå vidare till "Lägg till bok"
 	await page.getByRole('button', { name: 'Lägg till bok'}).click ({ timeout: 200 })
-	await expect(page.getByRole('heading', { name: 'Välkommen' })).toBeVisible({ timeout: 200 });
+	//await expect(page.getByRole('heading', { name: 'Välkommen' })).toBeVisible({ timeout: 200 });
+	await expect(page.getByText('Titel')).toBeVisible({ timeout: 200 });
 	// Gå vidare till "Mina böcker"
 	await page.getByRole('button', { name: 'Mina böcker'}).click ({ timeout: 200 })
-	await expect(page.getByRole('heading', { name: 'Välkommen' })).toBeVisible({ timeout: 200 });
+	//await expect(page.getByRole('heading', { name: 'Välkommen' })).toBeVisible({ timeout: 200 });
+	await expect(page.getByText('När du valt')).toBeVisible({ timeout: 200 });
 	// Gå tillbaka till katalogen
 	await page.getByRole('button', { name: 'Katalog'}).click ({ timeout: 200 })
 	await expect(page.getByRole('heading', { name: 'Välkommen' })).toBeVisible({ timeout: 200 });
