@@ -17,6 +17,9 @@ test('rubriken "Välkommen" visas på katalogsidan', async ({ page }) => {
 })
 
 test('när man trycker på en boktitel i katalogen så kan man välja att markera ett ❤️ på den boken, trycker man på ❤️ så ska ett ❤️ vara synligt. Boken ska vara synlig i "Mina böcker". När man avmarkerar en bok och trycker på ❤️ så ska ❤️ försvinna och boken tas den bort från "Mina böcker', async ({ page }) => {
+	//Förstasidan är katalogen.
+	await expect(page.getByRole('heading', { name: 'Välkommen' })).toBeVisible({ timeout: 200 });
+
     // Klicka på boktiteln för att visa hjärtat
     await page.getByText('Kaffekokaren som visste för mycket').click();
 
@@ -34,10 +37,11 @@ test('när man trycker på en boktitel i katalogen så kan man välja att marker
     await expect(heartButton).toHaveClass(/star selected/);
     await expect(heartButton).toBeVisible();
 
+	// Kontrollera att boken nu är synlig i "Mina böcker"
 	await page.getByRole('button', {name: 'Mina böcker'}).click({timeout: 500})
 	await expect(page.getByText('Dina favoriter:')).toBeVisible({timeout: 500})
 	await expect(page.getByText('Kaffekokaren som visste för mycket')).toBeVisible({timeout: 500});
-
+	// Gå tillbaka till katalogen
 	await page.getByRole('button', {name: 'Katalog'}).click({timeout: 500})
 
 	await heartButton.click(); // Avmarkera hjärtat
@@ -45,7 +49,7 @@ test('när man trycker på en boktitel i katalogen så kan man välja att marker
 	// Kontrollera att hjärtat inte längre har klassen "star selected"
 	await expect(heartButton).not.toHaveClass(/star selected/);
 	await expect(heartButton).toHaveClass(/star/);
-
+	// Kontrollera att boken inte längre är synlig i "Mina böcker"
 	await page.getByRole('button', {name: 'Mina böcker'}).click({timeout: 500})
 	await expect(page.getByText('När du valt,')).toBeVisible({timeout: 500});
 });

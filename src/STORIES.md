@@ -8,10 +8,8 @@ Som en användare , vill jag kunna trycka på knappen Mina böcker, så att jag 
 
 FUNKTIONALITET
 
-Som en användare , vill jag kunna markera ett hjärta på en bok , så att jag kan lägga till den i mina böcker.
+Som en användare , vill jag kunna markera ett hjärta på en bok , så att jag kan lägga till den i Mina böcker.
 
-Som en användare , vill jag kunna avmarkera ett hjärta på en bok , så att jag kan lägga till den i mina böcker.
+Som en användare , vill jag kunna avmarkera ett hjärta på en bok , så att jag kan ta bort Mina böcker.
 
-Som en användare , vill jag kunna skriva in en titel på en bok, så att jag kan lägga till den i katalogen.
-
-Som en användare , vill jag kunna skriva in en författare till en bok, så att jag kan lägga till den i katalogen.
+Som en användare , vill jag kunna skriva in titel och författare till en bok, så att jag kan lägga till den i katalogen.
