@@ -8,7 +8,7 @@ test.describe('Läslistan app', () => {
 
 
 //NAVIGERING: 
-test ('Bekräfta att förstasidan är katalogen och att första boken visas. Gå vidare till "Lägg till bok" och bekräfta att rubriken "Välkommen" visas. Gå vidare till "Mina böcker" och bekräfta att rubriken "Välkommen" visas. Gå tillbaka till katalogen och bekräfta att första boken visas igen', async ({ page }) => {
+test ('kan navigera mellan sidorna och se rätt innehåll', async ({ page }) => {
 	
 	await expect(page.getByText('Hur man tappar bort')).toBeVisible({ timeout: 200 });
 	// Gå vidare till "Lägg till bok"
