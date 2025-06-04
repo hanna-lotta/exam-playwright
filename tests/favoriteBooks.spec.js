@@ -16,10 +16,7 @@ test('rubriken "Välkommen" visas på katalogsidan', async ({ page }) => {
     await expect(page.getByRole('heading', { name: 'Välkommen' })).toBeVisible({ timeout: 200 });
 })
 
-test('när man trycker på en boktitel i katalogen så kan man välja att markera ett ❤️ på den boken, trycker man på ❤️ så ska ett ❤️ vara synligt. Boken ska vara synlig i "Mina böcker". När man avmarkerar en bok och trycker på ❤️ så ska ❤️ försvinna och boken tas den bort från "Mina böcker', async ({ page }) => {
-	//Förstasidan är katalogen.
-	await expect(page.getByRole('heading', { name: 'Välkommen' })).toBeVisible({ timeout: 200 });
-
+test('kan favoritmarkera och avmarkera en bok samt se uppdaterad lista i "Mina böcker"', async ({ page }) => { 
     // Klicka på boktiteln för att visa hjärtat
     await page.getByText('Kaffekokaren som visste för mycket').click();
 

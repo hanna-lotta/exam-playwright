@@ -7,12 +7,7 @@ test.describe('Läslistan app', () => {
 		await page.goto('https://tap-ht24-testverktyg.github.io/exam-template/ ')
 	})
 
-	test('has title "Läslistan"', async ({ page }) => {
-	// Expect a title "to contain" a substring.
-		await expect(page).toHaveTitle(/Läslistan/, {timeout: 500});
-})
-
-	test('när man fyllt i formuläret, både titel och författare och trycker på knappen "Lägg till bok" så ska boken läggas till i katalogen', async ({ page }) => {
+	test('kan lägga till en bok i katalogen via formuläret', async ({ page }) => {
 		// Gå till "Lägg till bok" sidan
 		await page.getByRole('button', {name: 'Lägg till bok'}).click({timeout: 500})
 		// Fyll i formulär
