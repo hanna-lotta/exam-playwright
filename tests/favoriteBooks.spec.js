@@ -29,8 +29,10 @@ test('kan favoritmarkera och avmarkera en bok samt se uppdaterad lista i "Mina b
     // Kontrollera att hjärtat nu har klassen "star" 
     await expect(heartButton).toHaveClass(/star/);
     await expect(heartButton).not.toHaveClass(/star selected/);
+	await expect(heartButton).toHaveCSS('opacity', '0.65')
 	await expect(heartButton2).toHaveClass(/star/);
 	await expect(heartButton2).not.toHaveClass(/star selected/);
+	await expect(heartButton).toHaveCSS('opacity', '0.65')
 
     // Klicka på hjärtat för att markera det
     await heartButton.click();
@@ -38,8 +40,10 @@ test('kan favoritmarkera och avmarkera en bok samt se uppdaterad lista i "Mina b
 
     // Kontrollera att hjärtat nu har klassen "star selected"
     await expect(heartButton).toHaveClass(/star selected/);
+	await expect(heartButton).toHaveCSS('opacity', '1');
     await expect(heartButton).toBeVisible();
 	await expect(heartButton2).toHaveClass(/star selected/);
+	await expect(heartButton2).toHaveCSS('opacity', '1');
 	await expect(heartButton2).toBeVisible();
 
 	// Kontrollera att boken nu är synlig i "Mina böcker"
