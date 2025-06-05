@@ -9,7 +9,7 @@ test.describe('Läslistan app', () => {
 
 //NAVIGERING: 
 test ('kan navigera mellan sidorna och se rätt innehåll', async ({ page }) => {
-	
+	//katalogen
 	await expect(page.getByText('Hur man tappar bort')).toBeVisible({ timeout: 200 });
 	// Gå vidare till "Lägg till bok"
 	await page.getByRole('button', { name: 'Lägg till bok'}).click ({ timeout: 200 })
